@@ -7,11 +7,10 @@
 
 | Nombre de los Integrantes | Papel o rol a desempeñar en el equipo | Responsabilidades Clave |
 | :--- | :--- | :--- |
-| **Jonathan Reyes** *(o Integrante 1)* | **Líder de Proyecto & Arquitecto de Software** | Coordinación general, arquitectura modular de la solución, integración en GitHub y estructuración del pitch. |
-| **Integrante 2** *(A completar por el equipo)* | **Ingeniero de Datos (Data Engineer)** | Ingesta, limpieza, preprocesamiento y validación de tipos del dataset de telemedicina. |
-| **Integrante 3** *(A completar por el equipo)* | **Científico de Datos (Machine Learning Engineer)** | Modelado predictivo (Random Forest / Regresión Logística), ingeniería de variables y evaluación de métricas. |
-| **Integrante 4** *(A completar por el equipo)* | **Analista de Datos & Especialista en Visualización** | Análisis exploratorio (EDA), pruebas estadísticas (Chi², ANOVA) y generación de gráficos de alta resolución. |
-| **Integrante 5** *(A completar por el equipo)* | **Especialista de Calidad, Documentación & Presentación** | Elaboración del informe técnico, documentación de la rúbrica, guion del video pitch y control de calidad. |
+| **Jonathan Reyes** | **Líder de Proyecto, Arquitecto & Documentación** | Coordinación general, diseño de arquitectura modular, integración en GitHub, estructuración técnica y pitch. |
+| **Jesús Torres** | **Ingeniero de Datos & QA** | Pipeline de ingesta, limpieza, preprocesamiento y validación de tipos (`src/data_loader.py`) y aseguramiento de calidad. |
+| **Ivy Janssen** | **Ingeniero de Machine Learning** | Modelos predictivos supervisados, ingeniería de variables y evaluación de métricas (`src/modeling.py`). |
+| **David Morales** | **Analista de Datos & Visualización** | Análisis exploratorio (EDA), pruebas de hipótesis estadísticas y gráficos de alta resolución (`src/visualizer.py`). |
 
 ---
 

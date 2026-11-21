@@ -39,6 +39,7 @@ def print_banner():
               SAMSUNG INNOVATION CAMPUS - SIC 2025/2026                         
             PROYECTO FINAL PYTHON: TELESALUD 360 ANALYTICS                      
   Plataforma de Optimizacion Clinica, Eficiencia y Satisfaccion del Paciente    
+  Equipo: Jonathan Reyes | Jesus Torres | Ivy Janssen | David Morales           
 ================================================================================
     """
     print(banner)

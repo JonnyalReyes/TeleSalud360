@@ -37,12 +37,11 @@
 * **Título:** TeleSalud 360
 * **Subtítulo:** Plataforma Analítica Predictiva para la Optimización de la Atención y Satisfacción en Telemedicina.
 * **Programa:** Samsung Innovation Campus (SIC) - Proyecto Final Módulo Python.
-* **Equipo:**
-  - Líder de Proyecto & Arquitectura: *[Nombre]*
-  - Data Engineering: *[Nombre]*
-  - Machine Learning & Modelado: *[Nombre]*
-  - Analítica & Visualización: *[Nombre]*
-  - QA & Documentación: *[Nombre]*
+* **Equipo de Desarrollo:**
+  - **Jonathan Reyes:** Líder de Proyecto, Arquitecto & Documentación
+  - **Jesús Torres:** Ingeniero de Datos & QA
+  - **Ivy Janssen:** Ingeniero de Machine Learning
+  - **David Morales:** Analista de Datos & Visualización
 * **Línea Gráfica:** Fondo azul Samsung con el logotipo oficial del SIC.
 
 ---
