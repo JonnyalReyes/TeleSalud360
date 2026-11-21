@@ -196,11 +196,10 @@ Se implementó un modelo supervisado **Random Forest Classifier** para identific
 
 | Integrante | Rol en el Equipo | Contribución Principal |
 | :--- | :--- | :--- |
-| **Jonathan Reyes** | Líder de Proyecto & Arquitecto | Coordinación, diseño de arquitectura modular, integración GitHub. |
-| **Integrante 2** | Ingeniero de Datos | Pipeline de ingesta, limpieza y validación de tipos (`src/data_loader.py`). |
-| **Integrante 3** | Ingeniero de Machine Learning | Modelos predictivos, evaluación y feature importances (`src/modeling.py`). |
-| **Integrante 4** | Analista de Datos & Visualización | Pruebas estadísticas y gráficos de alta resolución (`src/visualizer.py`). |
-| **Integrante 5** | QA & Documentación | Presentación oficial PPT, guión del video pitch y control de calidad. |
+| **Jonathan Reyes** | Líder de Proyecto & Arquitecto & Documentación | Coordinación, diseño de arquitectura modular, integración GitHub. |
+| **Jesús Torres** | Ingeniero de Datos & QA | Pipeline de ingesta, limpieza y validación de tipos (`src/data_loader.py`). |
+| **Ivy Janssen** | Ingeniero de Machine Learning | Modelos predictivos, evaluación y feature importances (`src/modeling.py`). |
+| **David Morales** | Analista de Datos & Visualización | Pruebas estadísticas y gráficos de alta resolución (`src/visualizer.py`).  |
 
 ---
 
