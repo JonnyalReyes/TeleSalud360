@@ -48,6 +48,28 @@ A partir del análisis cuantitativo de **500 consultas médicas** registradas du
 * **Valor Financiero y Operacional:** Reduce el absentismo y el costo de abandono de tratamientos en centros de salud. Al optimizar los tiempos de consulta y alertar sobre consultas prolongadas (>45 min), los centros médicos pueden aumentar su capacidad de atención en un **15% a 20%** sin contratar médicos adicionales.
 * **Valor Ambiental:** Al fortalecer la telemedicina efectiva frente a las visitas presenciales innecesarias, contribuye a la reducción de la huella de carbono asociada al desplazamiento en transporte vehicular de pacientes y cuidadores.
 
+---
+
+### 4. Alineación con los Valores y Principios Éticos de la UNESCO y la Agenda 2030 (ODS)
+
+El proyecto **TeleSalud 360** se encuentra estrechamente alineado con el marco axiológico de la **UNESCO** y la **Recomendación sobre la Ética de la Inteligencia Artificial de la UNESCO**:
+
+| Valor / Principio UNESCO | Aplicación Concreta en el Proyecto TeleSalud 360 |
+| :--- | :--- |
+| **1. Equidad y No Discriminación** | Garantiza que la atención en salud no dependa del poder adquisitivo o la infraestructura de internet del paciente. La validación estadística de los canales telefónicos (Audio) democratiza el acceso en zonas rurales sin degradar la calidad percibida. |
+| **2. Inclusión y Respeto a la Diversidad** | Proporciona soluciones accesibles para los adultos mayores (40% de los pacientes analizados), quienes presentan mayores barreras de alfabetización digital, habilitando canales auditivos asistidos. |
+| **3. Bienestar Humano y Derecho a la Salud** | Pone a la persona en el centro: el motor predictivo asegura que el **48.6%** de pacientes con necesidad de seguimiento no queden en el olvido, protegiendo su derecho a la continuidad terapéutica. |
+| **4. Transparencia y Explicabilidad en la IA (Recomendación UNESCO 2021)** | En lugar de algoritmos tipo "caja negra" inescrutables, el modelo predictivo de Random Forest provee explicabilidad matemática completa (cálculo de importancia relativa de duración 29.15% y edad 24.89%), garantizando decisiones auditables y éticas. |
+| **5. Privacidad y Protección de Datos** | Manejo estricto de identificadores anonimizados (`consultation_id`), salvaguardando la confidencialidad médica conforme a los principios bioéticos de la UNESCO. |
+
+#### Objetivos de Desarrollo Sostenible (ODS de la ONU / UNESCO) Impactados:
+* **ODS 3: Salud y Bienestar (Meta 3.8):** Cobertura sanitaria universal y reducción de complicaciones por enfermedades crónicas (hipertensión, infecciones) mediante seguimiento proactivo.
+* **ODS 10: Reducción de las Desigualdades:** Cierre de brechas asistenciales entre grandes ciudades y zonas periféricas desatendidas.
+* **ODS 9: Industria, Innovación e Infraestructura:** Innovación tecnológica abierta y reproducible desarrollada en software libre (Python).
+* **ODS 13: Acción por el Clima:** Disminución directa de emisiones de $CO_2$ al evitar traslados motorizados innecesarios hacia hospitales de tercer nivel.
+
+---
+
 #### (2) ¿Existen consideraciones que deban tenerse en cuenta para la comunidad (¿la gente amará esta idea, tendrá que acostumbrarse a ella, afecta negativamente a algunas personas)?
 * **Aceptación comunitaria:** Los pacientes valorarán enormemente recibir un seguimiento proactivo y una atención más ágil sin tiempos de espera frustrantes.
 * **Curva de adaptación:** Adultos mayores (que representan el 40% de las consultas analizadas) pueden requerir interfaces simplificadas o acompañamiento para el uso de canales digitales. Por ello, el proyecto respalda el uso del canal **Audio telefónico**, el cual demostró una satisfacción sólida (3.01/5) sin requerir alfabetización digital avanzada.

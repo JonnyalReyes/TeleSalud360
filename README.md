@@ -5,6 +5,8 @@
 ![Data Analysis](https://img.shields.io/badge/Data%20Analysis-Pandas%20%7C%20NumPy-orange.svg)
 ![Machine Learning](https://img.shields.io/badge/Machine%20Learning-Scikit--Learn-green.svg)
 ![Visualization](https://img.shields.io/badge/Visuals-Seaborn%20%7C%20Matplotlib-red.svg)
+![UNESCO Values](https://img.shields.io/badge/UNESCO-Valores%20%26%20%C3%89tica%20IA-0077D4.svg)
+![UN SDGs](https://img.shields.io/badge/ODS-3%20%7C%209%20%7C%2010%20%7C%2013-4C9F38.svg)
 ![Samsung Line](https://img.shields.io/badge/Design-Samsung%20Brand%20Palette-034EA2.svg)
 
 ---
@@ -31,6 +33,18 @@ Desarrollar una plataforma analítica y predictiva en **Python** que optimice lo
 2. **Analítica Exploratoria y Pruebas Estadísticas:** Evaluar la relación entre especialidades, duración y canales mediante pruebas de hipótesis formalizadas (Chi-cuadrado y ANOVA).
 3. **Modelado Predictivo de Machine Learning:** Entrenar algoritmos de clasificación supervisada (Random Forest) para anticipar pacientes en riesgo de insatisfacción y clasificar necesidades de seguimiento.
 4. **Visualización y Soporte a Decisiones:** Generar reportes visuales de alta resolución bajo la línea gráfica oficial de Samsung y emitir directrices operacionales para gestores de salud.
+
+---
+
+## 🌍 Alineación con los Valores de la UNESCO y la Agenda 2030 (ODS)
+
+El proyecto **TeleSalud 360** fue concebido bajo el marco de la **Recomendación sobre la Ética de la Inteligencia Artificial de la UNESCO** y los Objetivos de Desarrollo Sostenible (ODS):
+
+* **Equidad e Inclusión Social (Valor UNESCO):** Demostración empírica de que los canales telefónicos (`Audio: 3.01/5`) ofrecen la misma satisfacción que la videollamada, asegurando acceso equitativo a la salud para comunidades rurales y vulnerables sin conectividad de alta velocidad.
+* **Transparencia y Explicabilidad Algorítmica (Ética IA UNESCO):** Rechazo de modelos opacos tipo "caja negra". El modelo supervisado expone de forma transparente la importancia de cada variable (duración: 29.15%, edad: 24.89%) para auditoría médica.
+* **Derecho a la Salud y No Abandono (ODS 3 - Meta 3.8):** Salvaguarda la continuidad asistencial del **48.6%** de pacientes que requieren seguimiento, reduciendo complicaciones y reingresos a urgencias.
+* **Reducción de Desigualdades (ODS 10):** Descentralización del acceso a 5 especialidades médicas (Cardiología, Dermatología, Psiquiatría, Pediatría, Medicina General).
+* **Acción por el Clima (ODS 13):** Disminución de la huella de carbono asociada al transporte vehicular mediante teleconsultas resolutivas.
 
 ---
 

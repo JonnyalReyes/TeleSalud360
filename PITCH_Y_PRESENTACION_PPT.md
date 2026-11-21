@@ -17,7 +17,7 @@
   > *"Desarrollamos una plataforma en Python con Pandas, Scikit-Learn y visualizaciones avanzadas. Nuestro pipeline procesa datos en tiempo real, realiza pruebas estadísticas de hipótesis y entrena modelos de Machine Learning como Random Forest, identificando los factores que más impactan la experiencia del paciente y alertando demoras operativas antes de que generen frustración."*
 
 * **[00:45 - 01:00] LA PROPUESTA DE VALOR Y CIERRE:**
-  > *"Con TeleSalud 360 no solo elevamos la satisfacción del paciente al 65% y garantizamos la continuidad del cuidado médico en zonas remotas vía audio y video; también optimizamos la capacidad hospitalaria en un 20%. Con tecnología Samsung e innovación en Python, llevamos la salud al siguiente nivel. ¡Muchas gracias!"*
+  > *"TeleSalud 360 se alinea directamente con los valores de la UNESCO de equidad, inclusión y ética en IA, y con el ODS 3 de Salud y Bienestar. Elevamos la satisfacción al 65%, evitamos el abandono del tratamiento en pacientes crónicos y optimizamos la capacidad hospitalaria en un 20%. Con tecnología Samsung e innovación en Python, democratizamos la salud para todos. ¡Muchas gracias!"*
 
 ---
 
@@ -110,12 +110,16 @@
 
 ---
 
-### Diapositiva 8: Propuesta de Valor, Impacto Social y Conclusiones
-* **Impacto Social y Sostenibilidad:**
-  - Reducción del absentismo de pacientes crónicos en zonas rurales.
-  - Disminución de la saturación en salas de urgencias físicas en un 15-20%.
-  - Reducción de emisiones de CO2 al evitar desplazamientos innecesarios en transporte.
-* **Metas de Impacto:**
+### Diapositiva 8: Propuesta de Valor, Valores UNESCO y ODS de la ONU
+* **Alineación con Valores y Ética de la UNESCO:**
+  - **Equidad e Inclusión:** Atención de calidad en zonas remotas vía Audio/Chat sin exclusión tecnológica.
+  - **Ética y Transparencia en IA:** Algoritmos explicables y auditables (Random Forest con feature importances abiertas).
+  - **Privacidad y Dignidad:** Protección de datos médicos y anonimización de identificadores.
+* **Impacto en los Objetivos de Desarrollo Sostenible (ODS):**
+  - **ODS 3 (Salud y Bienestar - Meta 3.8):** Reducción del abandono terapéutico en el 48.6% que requiere control.
+  - **ODS 10 (Reducción de Desigualdades):** Descentralización de especialistas para comunidades vulnerables.
+  - **ODS 13 (Acción por el Clima):** Descarbonización de la atención médica al evitar viajes innecesarios.
+* **Metas Cuantitativas de Impacto:**
   - Elevar la tasa de alta satisfacción del **38.6% al 65.0%**.
   - Aumentar el cumplimiento de citas de seguimiento del **50% al 85%**.
 
@@ -131,3 +135,6 @@
 
 #### P3: ¿Cómo beneficia este desarrollo a comunidades vulnerables o rurales?
 * **Respuesta:** *"Nuestra investigación comprobó estadísticamente que la atención por Audio telefónico y Chat no tiene diferencias de satisfacción frente a la videollamada. Esto significa que podemos llevar atención médica especializada a zonas donde no hay fibra óptica ni smartphones de última generación, sin degradar la calidad percibida por el paciente."*
+
+#### P4: ¿Con qué valores de la UNESCO y Objetivos de Desarrollo Sostenible (ODS) se alinea su proyecto?
+* **Respuesta:** *"El proyecto se adhiere directamente a la 'Recomendación sobre la Ética de la IA' de la UNESCO en tres pilares: **Equidad** (democratizando el acceso médico sin brechas de conectividad), **Inclusión** (atención accesible para adultos mayores) y **Transparencia** (modelos de IA explicables, no cajas negras). En cuanto a los ODS de la ONU, impactamos prioritariamente el **ODS 3 (Salud y Bienestar)** al garantizar la trazabilidad del 48.6% de pacientes crónicos, el **ODS 10 (Reducción de Desigualdades)** y el **ODS 13 (Acción por el Clima)** mediante la reducción de emisiones por traslados presenciales innecesarios."*
