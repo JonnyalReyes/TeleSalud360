@@ -23,7 +23,13 @@ if current_dir not in sys.path:
     sys.path.insert(0, current_dir)
 
 from src.data_loader import load_telemedicine_data, preprocess_and_engineer_features, get_data_summary
-from src.eda_analysis import compute_kpis, analyze_specialties, analyze_consultation_modes, run_statistical_hypothesis_tests
+from src.eda_analysis import (
+    compute_kpis,
+    analyze_specialties,
+    analyze_consultation_modes,
+    run_statistical_hypothesis_tests,
+    analyze_symptom_specialty_concordance,
+)
 from src.numpy_analytics import (
     calculate_numpy_vectorized_metrics,
     compute_clinical_risk_index_numpy,
@@ -110,7 +116,18 @@ def main():
               f"Alta Sat: {row['alta_satisfaccion_pct']:>4.1f}%")
     print()
 
-    print("[*] Paso 6: Ejecutando Pruebas Estadisticas de Hipotesis (SciPy):")
+    print("[*] Paso 6: Verificacion de Triaje y Concordancia Sintoma-Especialidad (Hallazgos AstraMed):")
+    triage_results = analyze_symptom_specialty_concordance(df)
+    rash = triage_results["erupcion_fuera_dermatologia"]
+    chest = triage_results["dolor_toracico_fuera_cardiologia"]
+    anx = triage_results["ansiedad_fuera_psiquiatria"]
+    print(f"    - Erupcion cutanea (Skin Rash) fuera de Dermatologia:  {rash['porcentaje_desviado']}% ({rash['casos_desviados']}/{rash['total_casos']} casos)")
+    print(f"    - Dolor toracico (Chest Pain) fuera de Cardiologia:    {chest['porcentaje_desviado']}% ({chest['casos_desviados']}/{chest['total_casos']} casos)")
+    print(f"    - Ansiedad (Anxiety) fuera de Psiquiatria:             {anx['porcentaje_desviado']}% ({anx['casos_desviados']}/{anx['total_casos']} casos)")
+    print(f"    [!] Alerta Clinica: {triage_results['tasa_global_fallas_pct']}% de consultas analizadas sufren de falla de derivacion inicial.")
+    print("        AstraMed implementa validacion algoritmica en el DataFrame para corregir la asignacion pre-consulta.\n")
+
+    print("[*] Paso 7: Ejecutando Pruebas Estadisticas de Hipotesis (SciPy):")
     tests = run_statistical_hypothesis_tests(df)
     print(f"    1. Chi2 Modalidad vs Satisfaccion: p-valor = {tests['test_modalidad_satisfaccion']['p_valor']}")
     print(f"       -> {tests['test_modalidad_satisfaccion']['conclusion']}")
@@ -119,7 +136,7 @@ def main():
     print(f"    3. ANOVA Duracion entre Modalidades: p-valor = {tests['anova_duracion_modalidad']['p_valor']}")
     print(f"       -> {tests['anova_duracion_modalidad']['conclusion']}\n")
 
-    print("[*] Paso 7: Entrenamiento y Evaluacion de Modelos de Machine Learning (Scikit-Learn)...")
+    print("[*] Paso 8: Entrenamiento y Evaluacion de Modelos de Machine Learning (Scikit-Learn)...")
     ml_results = train_predictive_models(df)
     rf_acc = ml_results["random_forest"]["accuracy"] * 100
     lr_acc = ml_results["logistic_regression"]["accuracy"] * 100
@@ -130,7 +147,7 @@ def main():
         print(f"       * {feat:<28}: {imp * 100:>5.2f}%")
     print()
 
-    print("[*] Paso 8: Generando Graficos de Alta Resolucion en 'resources/' (Matplotlib & Seaborn)...")
+    print("[*] Paso 9: Generando Graficos de Alta Resolucion en 'resources/' (Matplotlib & Seaborn)...")
     generated_plots = generate_all_visualizations(
         df,
         feature_importances=ml_results["feature_importances_series"],
@@ -141,7 +158,7 @@ def main():
         print(f"    [OK] Guardado: {plot}")
     print()
 
-    print("[*] Paso 9: Recomendaciones Operativas para la Gestion de Salud:")
+    print("[*] Paso 10: Recomendaciones Operativas para la Gestion de Salud:")
     recommendations = generate_clinical_recommendations(df, ml_results)
     for i, rec in enumerate(recommendations, 1):
         print(f"\n    [{i}] {rec['area']}")

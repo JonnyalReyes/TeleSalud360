@@ -123,3 +123,53 @@ def run_statistical_hypothesis_tests(df: pd.DataFrame) -> Dict[str, Any]:
             ),
         },
     }
+
+
+def analyze_symptom_specialty_concordance(df: pd.DataFrame) -> Dict[str, Any]:
+    """
+    Verifica mediante el DataFrame la concordancia clínica entre síntomas y especialidades asignadas,
+    cuantificando las fallas de derivación en triaje (Skin Rash, Chest Pain, Anxiety).
+    """
+    total = len(df)
+    mismatches = int(df["symptom_specialty_mismatch"].sum())
+    mismatch_rate = round((mismatches / total) * 100, 2)
+
+    # 1. Erupción cutánea fuera de Dermatología
+    sub_rash = df[df["symptom"] == "Skin Rash"]
+    rash_out = int((sub_rash["specialty"] != "Dermatology").sum())
+    rash_pct = round((rash_out / len(sub_rash)) * 100, 1)
+
+    # 2. Dolor torácico fuera de Cardiología
+    sub_chest = df[df["symptom"] == "Chest Pain"]
+    chest_out = int((sub_chest["specialty"] != "Cardiology").sum())
+    chest_pct = round((chest_out / len(sub_chest)) * 100, 1)
+
+    # 3. Ansiedad fuera de Psiquiatría
+    sub_anx = df[df["symptom"] == "Anxiety"]
+    anx_out = int((sub_anx["specialty"] != "Psychiatry").sum())
+    anx_pct = round((anx_out / len(sub_anx)) * 100, 1)
+
+    # Matriz cruzada de síntomas vs especialidades
+    crosstab_df = pd.crosstab(df["symptom"], df["specialty"])
+
+    return {
+        "total_consultas": total,
+        "total_fallas_derivacion": mismatches,
+        "tasa_global_fallas_pct": mismatch_rate,
+        "erupcion_fuera_dermatologia": {
+            "total_casos": len(sub_rash),
+            "casos_desviados": rash_out,
+            "porcentaje_desviado": rash_pct,
+        },
+        "dolor_toracico_fuera_cardiologia": {
+            "total_casos": len(sub_chest),
+            "casos_desviados": chest_out,
+            "porcentaje_desviado": chest_pct,
+        },
+        "ansiedad_fuera_psiquiatria": {
+            "total_casos": len(sub_anx),
+            "casos_desviados": anx_out,
+            "porcentaje_desviado": anx_pct,
+        },
+        "crosstab_sintoma_especialidad": crosstab_df,
+    }

@@ -89,6 +89,35 @@ def preprocess_and_engineer_features(df: pd.DataFrame) -> pd.DataFrame:
     data["follow_up_binary"] = (data["follow_up_required"] == "Yes").astype(int)
     data["prescription_binary"] = (data["prescription_given"] == "Yes").astype(int)
 
+    # -------------------------------------------------------------------------
+    # Reglas Clínicas de Triaje Inteligente: Concordancia Síntoma vs Especialidad
+    # -------------------------------------------------------------------------
+    # Mapeo clínico primario de síntoma -> especialidad recomendada
+    primary_specialty_map = {
+        "Skin Rash": "Dermatology",
+        "Chest Pain": "Cardiology",
+        "Anxiety": "Psychiatry",
+        "Fever": "General Medicine",
+        "Cough": "General Medicine",
+        "Headache": "General Medicine",
+    }
+
+    def determine_expected_specialty(row):
+        # En pacientes pediátricos (<=18 años), Pediatría es la especialidad preferente para síntomas generales
+        if row["patient_age"] <= 18 and row["symptom"] in ["Fever", "Cough", "Headache"]:
+            return "Pediatrics"
+        return primary_specialty_map.get(row["symptom"], "General Medicine")
+
+    data["expected_specialty"] = data.apply(determine_expected_specialty, axis=1)
+
+    # Verificación de concordancia directa en el DataFrame
+    data["is_specialty_concordant"] = (data["specialty"] == data["expected_specialty"]).astype(int)
+    data["symptom_specialty_mismatch"] = (data["specialty"] != data["expected_specialty"]).astype(int)
+    data["triage_derivation_status"] = data["is_specialty_concordant"].map({
+        1: "Concordante",
+        0: "Falla de Derivación"
+    })
+
     return data
 
 

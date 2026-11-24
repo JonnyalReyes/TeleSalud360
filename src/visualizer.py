@@ -327,6 +327,65 @@ def plot_executive_multipanel_dashboard(df: pd.DataFrame, risk_labels: np.ndarra
     return out_path
 
 
+def plot_triage_concordance(df: pd.DataFrame, output_dir: str = "resources") -> str:
+    """
+    Genera un gráfico de barras comparativo de fallas de derivación en triaje clínico
+    para los tres síntomas clave: Erupción cutánea, Dolor torácico y Ansiedad.
+    """
+    os.makedirs(output_dir, exist_ok=True)
+    fig, ax = plt.subplots(figsize=(9, 5), dpi=300)
+
+    # Datos calculados
+    symptoms_eval = [
+        ("Erupción cutánea\n(Skin Rash)", "Dermatology", "Skin Rash"),
+        ("Dolor torácico\n(Chest Pain)", "Cardiology", "Chest Pain"),
+        ("Ansiedad\n(Anxiety)", "Psychiatry", "Anxiety")
+    ]
+
+    labels = []
+    correct_pcts = []
+    mismatch_pcts = []
+
+    for label, target_spec, sym in symptoms_eval:
+        sub = df[df["symptom"] == sym]
+        corr = (sub["specialty"] == target_spec).mean() * 100
+        mis = 100.0 - corr
+        labels.append(label)
+        correct_pcts.append(corr)
+        mismatch_pcts.append(mis)
+
+    y = np.arange(len(labels))
+    height = 0.45
+
+    # Barras horizontales apiladas
+    bars1 = ax.barh(y, correct_pcts, height, label="Asignado a Especialidad Correcta (%)", color=SAMSUNG_BLUE, edgecolor="none")
+    bars2 = ax.barh(y, mismatch_pcts, height, left=correct_pcts, label="Falla de Derivación Clínica (Fuera de Especialidad) (%)", color="#D9534F", edgecolor="none")
+
+    ax.set_title("Fallas de Derivación en Triaje Clínico por Síntoma Principal (AstraMed)", fontsize=12, fontweight="bold", pad=15, color=SAMSUNG_DARK)
+    ax.set_xlabel("Porcentaje de Consultas (%)", fontsize=10, labelpad=8)
+    ax.set_yticks(y)
+    ax.set_yticklabels(labels, fontweight="bold", fontsize=9)
+    ax.set_xlim(0, 105)
+    ax.legend(loc="lower right", frameon=True, fontsize=8)
+    ax.grid(axis="x", linestyle="--", alpha=0.5)
+
+    # Añadir porcentajes dentro de las barras
+    for bar in bars1:
+        w = bar.get_width()
+        if w > 10:
+            ax.text(w / 2, bar.get_y() + bar.get_height() / 2, f"{w:.1f}%", ha="center", va="center", color="white", fontweight="bold", fontsize=9)
+
+    for bar, left in zip(bars2, correct_pcts):
+        w = bar.get_width()
+        ax.text(left + w / 2, bar.get_y() + bar.get_height() / 2, f"{w:.1f}% ALERTA", ha="center", va="center", color="white", fontweight="bold", fontsize=9)
+
+    out_path = os.path.join(output_dir, "07_coherencia_triaje_especialidad.png")
+    plt.tight_layout()
+    plt.savefig(out_path, dpi=300)
+    plt.close()
+    return out_path
+
+
 def generate_all_visualizations(df: pd.DataFrame, feature_importances: pd.Series = None, risk_labels: np.ndarray = None, output_dir: str = "resources") -> list:
     """Ejecuta la generación completa de gráficos y retorna la lista de archivos creados."""
     plots = [
@@ -336,6 +395,7 @@ def generate_all_visualizations(df: pd.DataFrame, feature_importances: pd.Series
         plot_duration_vs_satisfaction(df, output_dir),
         plot_followup_and_prescription(df, output_dir),
         plot_symptom_diagnosis_heatmap(df, output_dir),
+        plot_triage_concordance(df, output_dir),
     ]
     if feature_importances is not None:
         plots.append(plot_feature_importance(feature_importances, output_dir))

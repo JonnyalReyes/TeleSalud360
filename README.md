@@ -89,7 +89,8 @@ Proyecto 1 - Telemedicina/
 │   ├── 03_duracion_vs_satisfaccion.png
 │   ├── 04_seguimiento_por_especialidad.png
 │   ├── 05_matriz_sintoma_diagnostico.png
-│   └── 06_importancia_caracteristicas.png
+│   ├── 06_importancia_caracteristicas.png
+│   └── 07_coherencia_triaje_especialidad.png
 ├── src/                                   # Arquitectura modular de código Python
 │   ├── __init__.py
 │   ├── data_loader.py                     # Ingesta, validación y feature engineering con Pandas
@@ -169,6 +170,16 @@ Mapeo clínico entre la sintomatología inicial y el diagnóstico definitivo.
 
 ![Matriz Síntoma Diagnóstico](resources/05_matriz_sintoma_diagnostico.png)
 
+### 6. Fallas de Derivación en Triaje Clínico y Coherencia Síntoma-Especialidad
+El análisis directo sobre el DataFrame reveló fallas de derivación en triaje que impactan la eficiencia del servicio:
+* **78.4% de erupción cutánea (Skin Rash)** fue atendida fuera de Dermatología (69 de 88 casos).
+* **78.3% de dolor torácico (Chest Pain)** fue atendido fuera de Cardiología (54 de 69 casos).
+* **80.7% de cuadros de ansiedad (Anxiety)** fue atendido fuera de Psiquiatría (67 de 83 casos).
+
+AstraMed integra una función de validación en el DataFrame (`is_specialty_concordant`) que verifica la coherencia entre síntoma, edad y especialidad para corregir la asignación en el triaje previo a la consulta.
+
+![Fallas de Triaje y Derivación](resources/07_coherencia_triaje_especialidad.png)
+
 ---
 
 ## 🤖 Modelo de Machine Learning y Factores Clave
@@ -189,6 +200,7 @@ Se implementó un modelo supervisado **Random Forest Classifier** para identific
 2. **Re-agendamiento Proactivo Automatizado:** Integrar notificaciones por WhatsApp/SMS vinculadas al registro `follow_up_required` para garantizar que el 48.6% de pacientes con seguimiento reciban cita sin demoras.
 3. **Optimización en Dermatología:** Exigir la carga de imágenes clínicas de alta resolución previo a la sesión de telemedicina para elevar la satisfacción actual (2.83).
 4. **Inclusión Rural mediante Audioasistencia:** Promover formalmente la teleconsulta telefónica estructurada en comunidades con conectividad deficiente.
+5. **Reglas de Triaje Inteligente Pre-Consulta:** Implementar validadores algorítmicos en AstraMed que crucen síntoma, edad y especialidad para reducir las fallas de derivación en un 90%.
 
 ---
 

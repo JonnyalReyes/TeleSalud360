@@ -30,11 +30,13 @@ A partir del análisis cuantitativo de **500 consultas médicas** registradas du
 2. **Impacto negativo de consultas prolongadas por demoras técnicas o clínicas:** Las consultas que superan los 45 minutos registran una satisfacción media de solo **2.74 / 5.00**, en contraste con las consultas estándar (15 a 45 minutos) que promedian **3.02 / 5.00**. La fatiga digital y los tiempos muertos deterioran la percepción del usuario.
 3. **Brecha crítica en el seguimiento de pacientes:** El **48.6% de los pacientes requieren seguimiento clínico obligatorio**, pero la mayoría de plataformas no cuentan con un mecanismo predictivo o automatizado para garantizar su re-agendamiento, arriesgando la adherencia terapéutica y aumentando la probabilidad de reingresos a urgencias.
 4. **Disparidad por especialidad:** Especialidades de alta dependencia visual como Dermatología registran la satisfacción más baja (**2.83 / 5.00**), demostrando la necesidad de protocolos estandarizados de captura previa de imágenes.
+5. **Fallas críticas de derivación clínica (Triaje Incoherente):** Se comprobó empíricamente en el dataset que gran parte de las consultas fueron asignadas a especialidades sin concordancia con sus síntomas: un **78.4% de erupción cutánea fuera de Dermatología** (69/88 casos), un **78.3% de dolor torácico fuera de Cardiología** (54/69 casos) y un **80.7% de cuadros de ansiedad fuera de Psiquiatría** (67/83 casos), lo que dilata los tiempos de atención y deteriora la calidad del servicio.
 
 #### Concepto general de la solución:
 **AstraMed** es un ecosistema analítico y predictivo desarrollado en **Python** que integra:
-- **Pipeline de Ingesta y Limpieza Automatizada:** Procesamiento robusto con validación de tipos y tratamiento de fechas.
-- **Motor de Analítica Descriptiva y Pruebas Estadísticas:** Cálculo de KPIs operacionales y pruebas de hipótesis (Chi-cuadrado y ANOVA) para determinar la correlación entre canal, especialidad y satisfacción.
+- **Pipeline de Ingesta, Limpieza y Verificación de Triaje:** Procesamiento robusto en Pandas con validación en el DataFrame de la concordancia lógica entre síntomas del paciente y la especialidad médica asignada.
+- **Motor de Analítica Descriptiva y Pruebas Estadísticas:** Cálculo de KPIs operacionales y pruebas de hipótesis (Chi-cuadrado y ANOVA) para determinar la correlación entre canal, especialidad, derivación y satisfacción.
+- **Módulo de Triaje Inteligente Pre-Consulta:** Algoritmo basado en reglas clínicas que verifica la coherencia entre síntoma, edad y especialidad antes de confirmar la cita médica.
 - **Modelo Predictivo de Clasificación (Machine Learning):** Implementación de algoritmos supervisados (*Random Forest Classifier*) para predecir con anticipación el riesgo de baja satisfacción del paciente y anticipar la necesidad de seguimiento clínico.
 - **Módulo de Recomendación Clínica y Alertas Operacionales:** Generación automatizada de alertas tempranas (por ejemplo, consultas que exceden 35 minutos) y recomendaciones ejecutivas para directores médicos y gestores hospitalarios.
 
@@ -82,19 +84,19 @@ El proyecto **AstraMed** se encuentra estrechamente alineado con el marco axiol�
 * **Mitigación de riesgos:** La privacidad de los datos de salud se protege bajo estándares éticos y anonimización de identificadores de pacientes (`consultation_id`), evitando cualquier filtración de información médica confidencial.
 
 #### (4) ¿Existen preguntas pendientes y/o supuestos que puedan responder sobre su idea?
-* **Supuesto validado:** *¿Es indispensable el video de alta definición para lograr una buena satisfacción del paciente?*
-  - **Respuesta cuantitativa:** No. Las pruebas de hipótesis demostraron que la satisfacción en Audio (3.01) y Chat (2.95) es estadísticamente comparable al Video (2.92). Esto valida que la telemedicina por canales ligeros es perfectamente viable en regiones rurales con conectividad limitada.
-* **Supuesto validado:** *¿El tiempo de consulta siempre incrementa la satisfacción?*
-  - **Respuesta cuantitativa:** Falso. Las consultas superiores a 45 minutos sufren un descenso a 2.74/5 en satisfacción, refutando la idea de que mayor duración equivale a mayor calidad.
+* **Supuestos cuantitativos validados con el dataset:**
+  1. **Equivalencia de canales de atención:** La modalidad (Audio, Chat o Video) logra niveles estadísticamente equivalentes de satisfacción ($p = 0.51$); un canal ligero no reduce la calidad percibida.
+  2. **Relación duración vs satisfacción:** Mayor duración no implica mejor opinión: superar los 45 min reduce la valoración media a **2.74 / 5.00** por fatiga digital.
+  3. **Fallas de derivación clínica:** Muchas consultas fueron referidas a una especialidad sin relación con los síntomas (**78.4%** erupción cutánea fuera de Dermatología; **78.3%** dolor torácico fuera de Cardiología; **80.7%** ansiedad fuera de Psiquiatría).
 
 #### (5) ¿Cuáles son las preguntas más importantes sin responder o las dudas pendientes que deberían resolverse antes de desarrollar más esta idea?
-1. **Integración con Historias Clínicas Electrónicas (HCE / EHR):** ¿Cuál es la compatibilidad con los sistemas hospitalarios existentes bajo estándares internacionales como HL7 / FHIR?
-2. **Latencia y Conectividad en Tiempo Real:** ¿Cómo influyen las micro-desconexiones en la frustración del usuario en zonas periféricas durante videollamadas?
-3. **Escalabilidad del Modelo:** ¿Cómo se comporta el modelo predictivo cuando el volumen escala a más de 100,000 consultas mensuales y con diagnósticos de mayor severidad?
+1. **Reglas de triaje inteligente:** Definir reglas de triaje inteligente que validen en el DataFrame la coherencia entre síntoma, edad y especialidad antes de asignar la consulta, además de validar con datos reales locales.
+2. **Integración con Historias Clínicas Electrónicas (HCE / EHR):** Evaluar la compatibilidad con sistemas hospitalarios existentes bajo estándares internacionales como HL7 / FHIR.
+3. **Escalabilidad y latencia:** Evaluar el comportamiento del modelo predictivo en plataformas con más de 100,000 consultas mensuales y telemetría en tiempo real.
 
 #### (6) ¿Cuál es el objetivo principal o métrica que intenta impactar con esta prueba?
-* **Objetivo Primario:** Incrementar la **Tasa de Alta Satisfacción del Paciente** del actual **38.6% al 65.0%**, reduciendo la insatisfacción (puntajes 1-2) del **37.8% a menos del 18.0%**.
+* **Meta Principal del Prototipo AstraMed:** Reducir la **insatisfacción actual (37.8%)** a menos del **18%**, asegurar el **seguimiento clínico al 48.6%** que requiere control y corregir las fallas de derivación en un **90%** mediante reglas de triaje inteligente.
 * **Métricas Operativas Secundarias:**
   - Reducción de consultas prolongadas (>45 min) no justificadas en un **30%** mediante alertas en tiempo real.
   - Aumento de la tasa de adherencia al seguimiento clínico programado del **50% al 85%** mediante el motor de re-agendamiento predictivo.
-  - Reducción del tiempo de triage y asignación de modalidad adecuada en un **40%**.
+  - Asignación certera de especialidad médica en el primer contacto en más del **95%** de los casos.

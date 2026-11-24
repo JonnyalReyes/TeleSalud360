@@ -11,7 +11,7 @@
   > *"¿Sabías que casi 4 de cada 10 pacientes que usan telemedicina terminan insatisfechos, y casi la mitad de los que necesitan seguimiento médico nunca regresan a su control? Bienvenidos a **AstraMed**, la solución inteligente para transformar la salud digital."*
 
 * **[00:10 - 00:25] EL PROBLEMA CON DATOS:**
-  > *"Al analizar 500 consultas de telemedicina con Python, descubrimos que la satisfacción promedio es de solo 2.9 sobre 5, y que cuando una consulta se alarga por encima de 45 minutos, la satisfacción se desploma. Además, el 48.6% de los pacientes requiere seguimiento clínico sin que hoy exista un sistema predictivo para evitar el abandono de su tratamiento."*
+  > *"Al analizar 500 consultas con Python, descubrimos una satisfacción media de solo 2.9 sobre 5 y una grave falla de derivación en triaje: casi el 80% de los pacientes fueron asignados a especialidades erróneas —como dolor torácico fuera de cardiología o ansiedad fuera de psiquiatría—. Además, el 48.6% requiere seguimiento clínico sin que hoy exista trazabilidad para su control."*
 
 * **[00:25 - 00:45] LA SOLUCIÓN Y RESULTADOS TECNOLÓGICOS:**
   > *"Desarrollamos una plataforma en Python con Pandas, Scikit-Learn y visualizaciones avanzadas. Nuestro pipeline procesa datos en tiempo real, realiza pruebas estadísticas de hipótesis y entrena modelos de Machine Learning como Random Forest, identificando los factores que más impactan la experiencia del paciente y alertando demoras operativas antes de que generen frustración."*
@@ -89,6 +89,19 @@
 
 ---
 
+### Diapositiva 5.1: Supuestos Validados, Pendientes y Meta (Hallazgos y Aspectos por Resolver para AstraMed)
+* **Supuestos cuantitativos validados con el dataset:**
+  - **Equivalencia de canales:** La modalidad (Audio, Chat o Video) logra niveles estadísticamente equivalentes de satisfacción ($p = 0.51$); un canal ligero no reduce la calidad percibida.
+  - **Duración vs Valoración:** Mayor duración no implica mejor opinión: superar los 45 min reduce la valoración media a **2.74 / 5.00**.
+  - **Fallas de derivación clínica:** Muchas consultas fueron referidas a una especialidad sin relación con los síntomas (**78.4%** erupción cutánea fuera de Dermatología; **78.3%** dolor torácico fuera de Cardiología; **80.7%** ansiedad fuera de Psiquiatría).
+* **Dudas pendientes antes de construir el prototipo AstraMed:**
+  - Definir reglas de triaje inteligente que validen la coherencia entre síntoma, edad y especialidad antes de asignar la consulta, además de validar con datos reales locales.
+* **Meta del prototipo AstraMed:**
+  - Reducir la insatisfacción actual (**37.8%**) y asegurar seguimiento al **48.6%** que requiere control.
+* **Elemento Visual:** Gráfico `resources/07_coherencia_triaje_especialidad.png`.
+
+---
+
 ### Diapositiva 6: Inteligencia Artificial y Modelado Predictivo
 * **Modelo Principal:** Random Forest Classifier (120 estimadores, profundidad optimizada).
 * **Variables con Mayor Poder Predictivo en la Satisfacción:**
@@ -103,6 +116,7 @@
 ### Diapositiva 7: Demostración Funcional y Recomendaciones Operativas
 * **Salida del Pipeline:** Ejecución de `AstraMed_Analytics.py` en consola generando KPIs, pruebas y gráficos automáticamente.
 * **Matriz de Recomendaciones Clínicas:**
+  - **Triaje Inteligente Pre-Consulta:** Validador algorítmico en el DataFrame que verifica coherencia síntoma-especialidad antes de agendar la cita.
   - **Alerta de Tiempo Límite:** Notificación clínica al minuto 35 para evitar sobrepasar los 45 minutos.
   - **Automatización de Re-agendamiento:** Integración con WhatsApp/SMS para el 48.6% que requiere control médico.
   - **Protocolo Dermatológico:** Subida previa obligatoria de fotografías dermatológicas en alta resolución antes de iniciar la videollamada.
@@ -137,3 +151,6 @@
 
 #### P4: ¿Con qué valores de la UNESCO y Objetivos de Desarrollo Sostenible (ODS) se alinea su proyecto?
 * **Respuesta:** *"El proyecto se adhiere directamente a la 'Recomendación sobre la Ética de la IA' de la UNESCO en tres pilares: **Equidad** (democratizando el acceso médico sin brechas de conectividad), **Inclusión** (atención accesible para adultos mayores) y **Transparencia** (modelos de IA explicables, no cajas negras). En cuanto a los ODS de la ONU, impactamos prioritariamente el **ODS 3 (Salud y Bienestar)** al garantizar la trazabilidad del 48.6% de pacientes crónicos, el **ODS 10 (Reducción de Desigualdades)** y el **ODS 13 (Acción por el Clima)** mediante la reducción de emisiones por traslados presenciales innecesarios."*
+
+#### P5: ¿Cómo verificaron en el DataFrame que los síntomas concuerden con su especialidad y qué descubrieron?
+* **Respuesta:** *"Creamos una columna de verificación clínica en el DataFrame llamada `is_specialty_concordant` y `symptom_specialty_mismatch` que contrasta el motivo de consulta con la especialidad asignada y la edad. Descubrimos una alarmante tasa de fallo en el triaje inicial: el **78.4%** de pacientes con erupción cutánea fueron atendidos fuera de Dermatología, el **78.3%** con dolor torácico fuera de Cardiología y el **80.7%** con ansiedad fuera de Psiquiatría. Este hallazgo demostró la necesidad de construir en AstraMed un validador de triaje inteligente que asegure la asignación correcta antes de confirmar la cita."*

@@ -107,6 +107,11 @@ def generate_clinical_recommendations(df: pd.DataFrame, model_results: Dict[str,
             "hallazgo": "La distribución de satisfacción entre modalidades es similar, lo que demuestra que canales de bajo ancho de banda (Audio/Chat) son viables en zonas de baja conectividad.",
             "accion": "Fomentar la consulta vía Audio asistido en zonas rurales y periurbanas para reducir brechas de acceso sin deteriorar la percepción de calidad del paciente.",
         },
+        {
+            "area": "Triaje Inteligente y Derivación Clínica",
+            "hallazgo": "Se detectó que el 78.4% de erupciones cutáneas, el 78.3% de dolores torácicos y el 80.7% de cuadros de ansiedad fueron derivados a especialidades no óptimas.",
+            "accion": "Integrar reglas de triaje inteligente en AstraMed que validen en el DataFrame la coherencia entre síntoma, edad y especialidad antes de agendar la consulta médica.",
+        },
     ]
 
     return recommendations
