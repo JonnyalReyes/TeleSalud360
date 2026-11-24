@@ -1,6 +1,6 @@
 """
 Módulo de Visualización Gráfica de Alto Impacto
-Proyecto: TeleSalud 360 - Samsung Innovation Campus (SIC)
+Proyecto: AstraMed - Samsung Innovation Campus (SIC)
 Alineado con la paleta institucional Samsung (#034EA2, #1428A0, #5C9CE6)
 """
 
@@ -319,7 +319,7 @@ def plot_executive_multipanel_dashboard(df: pd.DataFrame, risk_labels: np.ndarra
     else:
         ax4.text(0.5, 0.5, "Datos de riesgo no disponibles", ha="center", va="center")
 
-    fig.suptitle("TELESALUD 360 - DASHBOARD EJECUTIVO DE TELEMEDICINA\nSamsung Innovation Campus (SIC 2025/2026)", fontsize=15, fontweight="bold", color=SAMSUNG_DARK, y=0.98)
+    fig.suptitle("ASTRAMED - DASHBOARD EJECUTIVO DE TELEMEDICINA\nSamsung Innovation Campus (SIC 2025/2026)", fontsize=15, fontweight="bold", color=SAMSUNG_DARK, y=0.98)
 
     out_path = os.path.join(output_dir, "00_dashboard_ejecutivo_multipanel.png")
     plt.savefig(out_path, dpi=300, bbox_inches="tight")

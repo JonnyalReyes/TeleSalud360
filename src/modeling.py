@@ -1,6 +1,6 @@
 """
 Módulo de Modelado Predictivo y Recomendación Operativa
-Proyecto: TeleSalud 360 - Samsung Innovation Campus (SIC)
+Proyecto: AstraMed - Samsung Innovation Campus (SIC)
 """
 
 import pandas as pd

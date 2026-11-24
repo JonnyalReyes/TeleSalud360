@@ -1,6 +1,6 @@
 """
 Módulo de Carga, Validación e Ingeniería de Características
-Proyecto: TeleSalud 360 - Samsung Innovation Campus (SIC)
+Proyecto: AstraMed - Samsung Innovation Campus (SIC)
 """
 
 import os

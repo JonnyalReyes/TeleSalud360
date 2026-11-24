@@ -16,7 +16,7 @@
 
 ### 2. Nombre de la prueba (Prototipo a construir)
 
-> **TeleSalud 360: Plataforma Analítica Predictiva para la Optimización de la Atención, Eficiencia Clínica y Satisfacción del Paciente en Servicios de Telemedicina**
+> **AstraMed: Plataforma Analítica Predictiva para la Optimización de la Atención, Eficiencia Clínica y Satisfacción del Paciente en Servicios de Telemedicina**
 
 ---
 
@@ -32,7 +32,7 @@ A partir del análisis cuantitativo de **500 consultas médicas** registradas du
 4. **Disparidad por especialidad:** Especialidades de alta dependencia visual como Dermatología registran la satisfacción más baja (**2.83 / 5.00**), demostrando la necesidad de protocolos estandarizados de captura previa de imágenes.
 
 #### Concepto general de la solución:
-**TeleSalud 360** es un ecosistema analítico y predictivo desarrollado en **Python** que integra:
+**AstraMed** es un ecosistema analítico y predictivo desarrollado en **Python** que integra:
 - **Pipeline de Ingesta y Limpieza Automatizada:** Procesamiento robusto con validación de tipos y tratamiento de fechas.
 - **Motor de Analítica Descriptiva y Pruebas Estadísticas:** Cálculo de KPIs operacionales y pruebas de hipótesis (Chi-cuadrado y ANOVA) para determinar la correlación entre canal, especialidad y satisfacción.
 - **Modelo Predictivo de Clasificación (Machine Learning):** Implementación de algoritmos supervisados (*Random Forest Classifier*) para predecir con anticipación el riesgo de baja satisfacción del paciente y anticipar la necesidad de seguimiento clínico.
@@ -51,9 +51,9 @@ A partir del análisis cuantitativo de **500 consultas médicas** registradas du
 
 ### 4. Alineación con los Valores y Principios Éticos de la UNESCO y la Agenda 2030 (ODS)
 
-El proyecto **TeleSalud 360** se encuentra estrechamente alineado con el marco axiológico de la **UNESCO** y la **Recomendación sobre la Ética de la Inteligencia Artificial de la UNESCO**:
+El proyecto **AstraMed** se encuentra estrechamente alineado con el marco axiológico de la **UNESCO** y la **Recomendación sobre la Ética de la Inteligencia Artificial de la UNESCO**:
 
-| Valor / Principio UNESCO | Aplicación Concreta en el Proyecto TeleSalud 360 |
+| Valor / Principio UNESCO | Aplicación Concreta en el Proyecto AstraMed |
 | :--- | :--- |
 | **1. Equidad y No Discriminación** | Garantiza que la atención en salud no dependa del poder adquisitivo o la infraestructura de internet del paciente. La validación estadística de los canales telefónicos (Audio) democratiza el acceso en zonas rurales sin degradar la calidad percibida. |
 | **2. Inclusión y Respeto a la Diversidad** | Proporciona soluciones accesibles para los adultos mayores (40% de los pacientes analizados), quienes presentan mayores barreras de alfabetización digital, habilitando canales auditivos asistidos. |

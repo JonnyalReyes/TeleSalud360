@@ -1,6 +1,6 @@
 """
 Módulo de Computación Numérica y Álgebra Vectorial con NumPy
-Proyecto: TeleSalud 360 - Samsung Innovation Campus (SIC)
+Proyecto: AstraMed - Samsung Innovation Campus (SIC)
 Demuestra el uso avanzado de NumPy: broadcasting, arrays n-dimensionales,
 percentiles, normalización min-max, z-scores y cálculo de índice compuesto de riesgo.
 """

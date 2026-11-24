@@ -1,6 +1,6 @@
 # GUÍA OFICIAL DE PRESENTACIÓN PPT Y PITCH DE VENTAS (1 MINUTO)
 ## SAMSUNG INNOVATION CAMPUS - SIC 2025/2026
-### PROYECTO: TeleSalud 360 - Analytics & Machine Learning para Telemedicina
+### PROYECTO: AstraMed - Analytics & Machine Learning para Telemedicina
 
 ---
 
@@ -8,7 +8,7 @@
 > **Tiempo exacto:** 60 segundos | **Formato:** Video horizontal con cámara activa y diapositivas de fondo.
 
 * **[00:00 - 00:10] EL GANCHO (Hook):**
-  > *"¿Sabías que casi 4 de cada 10 pacientes que usan telemedicina terminan insatisfechos, y casi la mitad de los que necesitan seguimiento médico nunca regresan a su control? Bienvenidos a **TeleSalud 360**, la solución inteligente para transformar la salud digital."*
+  > *"¿Sabías que casi 4 de cada 10 pacientes que usan telemedicina terminan insatisfechos, y casi la mitad de los que necesitan seguimiento médico nunca regresan a su control? Bienvenidos a **AstraMed**, la solución inteligente para transformar la salud digital."*
 
 * **[00:10 - 00:25] EL PROBLEMA CON DATOS:**
   > *"Al analizar 500 consultas de telemedicina con Python, descubrimos que la satisfacción promedio es de solo 2.9 sobre 5, y que cuando una consulta se alarga por encima de 45 minutos, la satisfacción se desploma. Además, el 48.6% de los pacientes requiere seguimiento clínico sin que hoy exista un sistema predictivo para evitar el abandono de su tratamiento."*
@@ -17,7 +17,7 @@
   > *"Desarrollamos una plataforma en Python con Pandas, Scikit-Learn y visualizaciones avanzadas. Nuestro pipeline procesa datos en tiempo real, realiza pruebas estadísticas de hipótesis y entrena modelos de Machine Learning como Random Forest, identificando los factores que más impactan la experiencia del paciente y alertando demoras operativas antes de que generen frustración."*
 
 * **[00:45 - 01:00] LA PROPUESTA DE VALOR Y CIERRE:**
-  > *"TeleSalud 360 se alinea directamente con los valores de la UNESCO de equidad, inclusión y ética en IA, y con el ODS 3 de Salud y Bienestar. Elevamos la satisfacción al 65%, evitamos el abandono del tratamiento en pacientes crónicos y optimizamos la capacidad hospitalaria en un 20%. Con tecnología Samsung e innovación en Python, democratizamos la salud para todos. ¡Muchas gracias!"*
+  > *"AstraMed se alinea directamente con los valores de la UNESCO de equidad, inclusión y ética en IA, y con el ODS 3 de Salud y Bienestar. Elevamos la satisfacción al 65%, evitamos el abandono del tratamiento en pacientes crónicos y optimizamos la capacidad hospitalaria en un 20%. Con tecnología Samsung e innovación en Python, democratizamos la salud para todos. ¡Muchas gracias!"*
 
 ---
 
@@ -34,7 +34,7 @@
 ---
 
 ### Diapositiva 1: Portada Institucional
-* **Título:** TeleSalud 360
+* **Título:** AstraMed
 * **Subtítulo:** Plataforma Analítica Predictiva para la Optimización de la Atención y Satisfacción en Telemedicina.
 * **Programa:** Samsung Innovation Campus (SIC) - Proyecto Final Módulo Python.
 * **Equipo de Desarrollo:**
@@ -101,7 +101,7 @@
 ---
 
 ### Diapositiva 7: Demostración Funcional y Recomendaciones Operativas
-* **Salida del Pipeline:** Ejecución de `TeleMed_Analytics.py` en consola generando KPIs, pruebas y gráficos automáticamente.
+* **Salida del Pipeline:** Ejecución de `AstraMed_Analytics.py` en consola generando KPIs, pruebas y gráficos automáticamente.
 * **Matriz de Recomendaciones Clínicas:**
   - **Alerta de Tiempo Límite:** Notificación clínica al minuto 35 para evitar sobrepasar los 45 minutos.
   - **Automatización de Re-agendamiento:** Integración con WhatsApp/SMS para el 48.6% que requiere control médico.
@@ -130,7 +130,7 @@
 * **Respuesta:** *"Seleccionamos Random Forest porque ofrece el mejor equilibrio entre precisión predictiva e interpretabilidad clínica. En el sector salud es fundamental explicar el 'por qué' de una predicción; Random Forest nos permite calcular la importancia relativa exacta de cada característica (como la duración y la edad), a diferencia de modelos tipo caja negra."*
 
 #### P2: ¿Qué hicieron para garantizar que el código sea mantenible y profesional de acuerdo con la rúbrica?
-* **Respuesta:** *"Diseñamos una arquitectura modular en la carpeta `src/`, separando claramente la ingesta (`data_loader`), la analítica estadística (`eda_analysis`), el modelado (`modeling`) y la visualización (`visualizer`), todo coordinado por un script principal `TeleMed_Analytics.py`. Además, incluimos control de excepciones, tipado estricto (`type hinting`) y un archivo `requirements.txt` reproducible."*
+* **Respuesta:** *"Diseñamos una arquitectura modular en la carpeta `src/`, separando claramente la ingesta (`data_loader`), la analítica estadística (`eda_analysis`), el modelado (`modeling`) y la visualización (`visualizer`), todo coordinado por un script principal `AstraMed_Analytics.py`. Además, incluimos control de excepciones, tipado estricto (`type hinting`) y un archivo `requirements.txt` reproducible."*
 
 #### P3: ¿Cómo beneficia este desarrollo a comunidades vulnerables o rurales?
 * **Respuesta:** *"Nuestra investigación comprobó estadísticamente que la atención por Audio telefónico y Chat no tiene diferencias de satisfacción frente a la videollamada. Esto significa que podemos llevar atención médica especializada a zonas donde no hay fibra óptica ni smartphones de última generación, sin degradar la calidad percibida por el paciente."*

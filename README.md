@@ -1,4 +1,4 @@
-# TeleSalud 360: Plataforma Analítica Predictiva para Telemedicina
+# AstraMed: Plataforma Analítica Predictiva para Telemedicina
 ### Samsung Innovation Campus (SIC 2025/2026) - Proyecto Final Módulo Python
 
 ![Python Version](https://img.shields.io/badge/Python-3.13%2B-blue.svg?logo=python&logoColor=white)
@@ -38,7 +38,7 @@ Desarrollar una plataforma analítica y predictiva en **Python** que optimice lo
 
 ## 🌍 Alineación con los Valores de la UNESCO y la Agenda 2030 (ODS)
 
-El proyecto **TeleSalud 360** fue concebido bajo el marco de la **Recomendación sobre la Ética de la Inteligencia Artificial de la UNESCO** y los Objetivos de Desarrollo Sostenible (ODS):
+El proyecto **AstraMed** fue concebido bajo el marco de la **Recomendación sobre la Ética de la Inteligencia Artificial de la UNESCO** y los Objetivos de Desarrollo Sostenible (ODS):
 
 * **Equidad e Inclusión Social (Valor UNESCO):** Demostración empírica de que los canales telefónicos (`Audio: 3.01/5`) ofrecen la misma satisfacción que la videollamada, asegurando acceso equitativo a la salud para comunidades rurales y vulnerables sin conectividad de alta velocidad.
 * **Transparencia y Explicabilidad Algorítmica (Ética IA UNESCO):** Rechazo de modelos opacos tipo "caja negra". El modelo supervisado expone de forma transparente la importancia de cada variable (duración: 29.15%, edad: 24.89%) para auditoría médica.
@@ -59,7 +59,7 @@ flowchart TD
     D --> F["Generación de Gráficos de Alta Resolución (src/visualizer.py)"]
     E --> F
     F --> G["Carpeta de Recursos Gráficos (resources/)"]
-    D --> H["Orquestador Principal (TeleMed_Analytics.py)"]
+    D --> H["Orquestador Principal (AstraMed_Analytics.py)"]
     E --> H
     H --> I["Reporte Ejecutivo, KPIs en Consola y Recomendaciones Clínicas"]
 ```
@@ -98,8 +98,8 @@ Proyecto 1 - Telemedicina/
 │   ├── visualizer.py                      # Dashboards y gráficos de alta resolución con Matplotlib/Seaborn
 │   └── modeling.py                        # Machine Learning predictivo con Scikit-Learn
 ├── telemedicine_consultation_dataset.csv  # Base de datos de consultas de telemedicina
-├── TeleMed_Analytics.py                   # Script ejecutable principal del proyecto
-├── TeleSalud360_Analisis_Datos.ipynb      # Cuaderno interactivo Jupyter Notebook completo
+├── AstraMed_Analytics.py                  # Script ejecutable principal del proyecto
+├── AstraMed_Analisis_Datos.ipynb          # Cuaderno interactivo Jupyter Notebook completo
 ├── FORMULARIO_PROPUESTA_SIC.md            # Formulario oficial de presentación del proyecto SIC
 ├── PITCH_Y_PRESENTACION_PPT.md            # Guión del video pitch de 1 min y estructura PPT
 ├── requirements.txt                       # Dependencias del proyecto
@@ -112,7 +112,7 @@ Proyecto 1 - Telemedicina/
 
 ### 1. Clonar el repositorio
 ```bash
-git clone https://github.com/tu-usuario/SIC25-TeleSalud360.git
+git clone https://github.com/JonnyalReyes/TeleSalud360.git
 cd "Proyecto 1 - Telemedicina"
 ```
 
@@ -123,16 +123,16 @@ pip install -r requirements.txt
 
 ### 3. Ejecutar el pipeline analítico completo
 ```bash
-python TeleMed_Analytics.py
+python AstraMed_Analytics.py
 ```
-*(En Windows también puede ejecutarse con: `py -3.13 TeleMed_Analytics.py`)*
+*(En Windows también puede ejecutarse con: `py -3.13 AstraMed_Analytics.py`)*
 
 Al ejecutar el script, el sistema procesará la base de datos con **Pandas**, realizará cálculos matriciales y Bootstrap con **NumPy**, ejecutará pruebas estadísticas con **SciPy**, entrenará modelos con **Scikit-Learn** y generará automáticamente todos los gráficos en la carpeta `resources/` usando **Matplotlib** y **Seaborn**.
 
 ### 4. Abrir el Cuaderno Interactivo (Jupyter Notebook)
 Para explorar el análisis paso a paso en entorno de notebooks:
 ```bash
-jupyter notebook TeleSalud360_Analisis_Datos.ipynb
+jupyter notebook AstraMed_Analisis_Datos.ipynb
 ```
 
 ---
